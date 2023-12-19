@@ -1,0 +1,166 @@
+.site-grid {
+    @apply grid grid-cols-12 gap-x-24 px-59 w-full mx-auto;
+}
+
+.site-max {
+    @apply w-full max-w-[180rem] mx-auto;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @screen s {
+        padding-left: 5.9rem;
+        padding-right: 5.9rem;
+    }
+}
+
+.site-gutter {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @screen s {
+        padding-left: 5.9rem;
+        padding-right: 5.9rem;
+    }
+}
+
+.media-fill {
+
+    img,
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.cursor-grab {
+    cursor: grab;
+}
+
+.t-fade {
+    transition: opacity .5s ease-out;
+}
+
+.site-link {
+    opacity: .25;
+    transition: opacity .5s ease-out;
+
+    &.nuxt-link-exact-active,
+    &.is-active,
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.uline {
+    display: inline-flex;
+    position: relative;
+    white-space: nowrap;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 0.15em;
+        min-height: 1px;
+        background-color: currentColor;
+        transition: transform .55s $CircEaseInOut;
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+
+    &:hover,
+    &.nuxt-link-exact-active {
+
+        &:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+
+    &.nuxt-link-exact-active {
+        pointer-events: none;
+    }
+}
+
+.uline-double {
+    display: inline-flex;
+    position: relative;
+    white-space: nowrap;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -0.2em;
+        right: 0;
+        left: 0;
+        height: 0.15em;
+        min-height: 1px;
+        background-color: currentColor
+    }
+
+    &:before {
+        transform-origin: left;
+        transform: scaleX(1);
+        transition: transform .55s $CircEaseInOut;
+        transition-delay: .5s;
+    }
+
+    &:after {
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .55s $CircEaseInOut;
+        transition-delay: 0s;
+    }
+
+    &:hover {
+
+        &:before {
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform .55s $CircEaseInOut;
+            transition-delay: 0s;
+        }
+
+        &:after {
+            transform-origin: left;
+            transform: scaleX(1);
+            transition: transform .55s $CircEaseInOut;
+            transition-delay: .2s;
+        }
+    }
+}
+
+.touch-scroll {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 2.4rem;
+
+    .carousel-slide {
+        scroll-snap-align: start;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.cursor-grab {
+    cursor: grab;
+}
+
+.aspect {
+    aspect-ratio: var(--aspect);
+}
+
+.radius-fix {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}

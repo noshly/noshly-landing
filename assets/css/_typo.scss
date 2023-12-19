@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'gluten';
+    src: url('../fonts/GlutenFT-Regular.woff2') format('woff2'),
+        url('../fonts/GlutenFT-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'poly';
+    src: url('../fonts/PolySans-Bulky.woff2') format('woff2'),
+        url('../fonts/PolySans-Bulky.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'poly';
+    src: url('../fonts/PolySans-Neutral.woff2') format('woff2'),
+        url('../fonts/PolySans-Neutral.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'poly';
+    src: url('../fonts/PolySans-BulkyItalic.woff2') format('woff2'),
+        url('../fonts/PolySans-BulkyItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'polyl';
+    src: url('../fonts/PolySans-NeutralItalic.woff2') format('woff2'),
+        url('../fonts/PolySans-NeutralItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+.txt {
+
+    >* {
+        font-weight: 500;
+        line-height: 1.3;
+
+        &:not(:last-child) {
+            margin-bottom: 2.5rem;
+        }
+    }
+}
+
+i,
+em {
+    line-height: inherit;
+}
+
+strong {
+    font-weight: bold;
+}
+
+:root {
+    --duration: 1.25s;
+    --delay: 0.075s;
+}
+
+@for $i from 0 through 50 {
+    .c-#{$i} {
+        transform: translate3d(0, 100%, 0);
+
+        .animate.is-active & {
+            transition: transform var(--duration) $ExpoEaseOut;
+            transition-delay: calc(0.05s * #{$i});
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .l-#{$i} {
+        transform: translate3d(0, 100%, 0);
+
+        .animate.is-active & {
+            transition: transform var(--duration) $ExpoEaseOut;
+            transition-delay: calc(var(--delay) * #{$i});
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+/* ==========================================
+  Single-colored icons can be modified like so:
+  .icon-name {
+    font-size: 32px;
+    color: red;
+  }
+  ========================================== */
+
+.icon-twitter {
+    width: 0.9287109375em;
+}
+
+.icon-instagram {
+    width: 0.857421875em;
+}
